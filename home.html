@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PHASE II</title>
+  <link rel="icon" href="logo2.png">
+<link rel="stylesheet" href="home.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+  <div class="bg" id="back">
+    <p style="    font-size: 100px;
+  
+    margin: 0px;
+  padding: 21% auto;
+    padding-top: 15%;" id="text">SOLUTION FOR<br>
+    HOSTEL FINDER</p>
+  </div>
+	
+	<div class="a">
+		<div class="main" id="main" style="display: none">
+	
+			<input type="submit" id="add" name="delete" value="Objective">
+			<a href="functionality.html"><input type="submit" id="delete" name="delete" value="Functionality"></a>
+			<a href="technology.html"><input type="submit" id="display" name="display" value="Technology Used"></a>
+			<input type="submit" id="books" name="books" value="Constraints">
+			
+			<div class="circlea" style="width: 100px;height: 100px;">
+				<button style="        color: #ccc;
+    font-family: monospace;
+    font-size: 20px;
+    /* padding-top: 15px; */
+    background-color: #4c4c4c;
+    border: none;
+    /* margin-top: 20px; */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #4c4c4c;
+    cursor: pointer;"  id="a" >PHASE II</button>
+			</div>
+			
+		</div>
+		
+
+      
+  </div>
+</div>
+<div id="myModal1" class="modal">
+
+  
+  <div class="modal-content1">
+        
+      <p style="margin: 0px;padding-top: 20px;">OBJECTIVES<p>
+        <P  style="text-align: left;padding-left: 20px;"><>Add Hostels<br>
+        <> Serach Hostels<br>
+        <>  View Details<br>
+        <>  Compare Hostels</P>
+      
+      
+  </div>
+</div>
+<div id="myModal2" class="modal">
+
+  
+  <div class="modal-content2">
+        
+      <p style="margin: 0px;padding-top: 20px;">CONSTRAINTS<p>
+        <p style="text-align: left;padding-left: 20px;"><>  Language<br>
+          <>  atmosphere<br>
+          <>  Only in Trivandrum<br>
+          <>  Not realistic</p>
+      
+      
+  </div>
+</div>
+<script>
+	$(document).ready(function(){
+   
+    $("#a").click(function(e){
+      e.preventDefault();
+   
+        $("#add").animate({
+        left: '30%',
+    	top: '35%',
+        height: '150px',
+        width: '150px',
+
+    },1000);
+
+   $("#delete").delay(1000).animate({
+        left: '46%',
+    	top: '2%',
+        height: '150px',
+        width: '150px',
+      
+
+    },1000);
+   $("#display").delay(1700).animate({
+   	 
+        left: '60%',
+    	top: '35%',
+        height: '150px',
+        width: '150px',
+
+    },1000);
+  
+   $("#books").delay(2000).animate({
+        left: '45.4%',
+    	top: '61%',
+        height: '150px',
+        width: '150px',
+
+    },1000);
+    
+   }); 
+});
+  $("#back").click(function(e){
+      e.preventDefault();
+        $("#main").show(2000);
+    });
+$("#back").click(function(e){
+      e.preventDefault();
+        $("#text").hide(1000);
+    });
+// Get the modal
+var modal1 = document.getElementById('myModal1');
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("add");
+
+
+
+// When the user clicks the button, open the modal 
+btn1.onclick = function(e) {
+  e.preventDefault();
+    modal1.style.display = "block";
+}
+
+// Get the modal
+var modal2 = document.getElementById('myModal2');
+
+// Get the button that opens the modal
+var btn2 = document.getElementById("books");
+
+
+
+// When the user clicks the button, open the modal 
+btn2.onclick = function(e) {
+  e.preventDefault();
+    modal2.style.display = "block";
+}
+window.onclick = function(event) {
+   if (event.target.matches('.modal')) {
+        $(".modal").css('display','none');
+    }
+}
+
+
+</script>
+</body>
+</html>
