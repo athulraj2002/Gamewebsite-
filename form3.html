@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<title>
-		Form 1
+		Form 3
 	</title>
 	<style type="text/css">
 
@@ -37,7 +36,7 @@
 		.box{
 			    width: 30%;
     padding: 10px;
-  
+    height: 300px;
     background-color: #5656561f;
     /* border: 1px solid; */
     border-radius: 10px;
@@ -50,7 +49,7 @@
       color: white;
       padding: 16px 32px;
       text-decoration: none;
-      margin: 17px 0px 20px 20px;
+      margin: 17px 0px 0px 20px;
       cursor: pointer;
       border-radius: 10px;
       font-size: large;
@@ -92,23 +91,80 @@
 </head>
 <body>
 	<div class="background">
-		<h4>Wow! you scored <script>document.write(location.hash.replace('#',''));</script> <br>Enter details to continue.. </h4>
+		<h4>Enter details to finish.. </h4>
 		<div class="box">
 			<div class="form" style="padding-top: 20px;">
-				<form action="hextris/index.html">
-					<input type="text" name="Name" id="name" placeholder="Enter Name">
-					<input type="text" name="Age" id="age" placeholder="Enter Age">
-					<input type="email" name="email" id="email" placeholder="Enter email id" >
-					<input type="text" name="nation" id="nation" placeholder="Nationality">
-					<input type="text" name="phone" id="phone" placeholder="Enter Phone Number">
-					<input type="submit" name="Next" value="Continue">
+				<form>
+          <div class="form-group">
+            <label for="destination">Choose Prefered Destination</label>
+            <select class="form-control" id="destination" style="display:inline; width: 70%;    background-color: #ffffff78">
+              <option>--Select Destination--</option>
+              <option>Australia</option>
+              <option>USA</option>
+              <option>UK</option>
+              <option>France</option>
+              <option>Spain</option>
+              <option>Singapore</option>
+              <option>CanadA</option>
+              <option>Germany</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="destination">Choose Prefered Course</label>
+            <select class="form-control" id="course" style="display:inline; width: 70%;    background-color: #ffffff78">
+              <option>--Choose Course--</option>
+              <option>Medicine</option>
+              <option>Engineering</option>
+              <option>BBA</option>
+              <option>Hotel Management</option>
+              <option> Arts</option>
+              <option>Accounts</option>
+              <option>Aviation</option>
+              <option>Fasion Design</option>
+              <option>Aeronautics</option>
+            </select>
+          </div>
+					
+					<button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#myModal" style="    padding: 10px;
+    width: 100px;
+    margin-top: 20px;">Finish</button>
 				</form>
 				
 			</div>
 			
 		</div>
+
+    <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Your Score</h4>
+         
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+         <h1>45455</h1>
+         Thanks for Playing
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <a href="home.html"><button type="button" class="btn btn-secondary" >Close</button></a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
 		
 	</div>
+
+
+
 
 </body>
 </html>
