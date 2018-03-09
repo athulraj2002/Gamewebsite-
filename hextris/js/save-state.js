@@ -28,7 +28,7 @@ function exportSaveState() {
 	}
 
 	localStorage.setItem('highscores', JSON.stringify(highscores));
-
+	return false;
 	return JSONfn.stringify(state);
 }
 

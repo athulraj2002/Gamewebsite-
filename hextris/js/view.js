@@ -168,7 +168,7 @@ function updateHighScores (){
     $("#3place").text(highscores[2]);
 }
 
-var pausable = true;
+var pausable =true;
 function pause(o) {
     if (gameState == 0 || gameState == 2 || !pausable) {
         return;
@@ -182,6 +182,49 @@ function pause(o) {
 	} else {
 		message = 'paused';
 	}
+
+	var c = document.getElementById("canvas");
+	if (gameState == -1) {
+		$('#fork-ribbon').fadeOut(300, 'linear');
+		$('#restartBtn').fadeOut(300, "linear");
+		$('#buttonCont').fadeOut(300, "linear");
+		if ($('#helpScreen').is(':visible')) {
+			$('#helpScreen').fadeOut(300, "linear");
+		}
+
+		$("#pauseBtn").attr("src", "./images/btn_pause.svg");
+		$('.helpText').fadeOut(300, 'linear');
+		$('#overlay').fadeOut(300, 'linear');
+		hideText();
+		setTimeout(function() {
+			gameState = prevGameState;
+			pausable =true;
+		}, 400);
+	} else if (gameState != -2 && gameState !== 0 && gameState !== 2) {
+		$('#restartBtn').fadeIn(300, "linear");
+		$('#buttonCont').fadeIn(300, "linear");
+		$('.helpText').fadeIn(300, 'linear');
+		if (message == 'paused') {
+			showText(message);
+		}
+		$('#fork-ribbon').fadeIn(300, 'linear');
+		$("#pauseBtn").attr("src","./images/btn_resume.svg");
+		$('#overlay').fadeIn(300, 'linear');
+		prevGameState = gameState;
+		setTimeout(function() {
+		    pausable = true;
+		}, 400);
+		gameState = -1;
+	}
+}
+function pausesample(o) {
+    if ( gameState == 2 || !pausable) {
+        return;
+    }
+
+	pausable = false;
+	writeHighScores();
+	var message = 'gameover';
 
 	var c = document.getElementById("canvas");
 	if (gameState == -1) {

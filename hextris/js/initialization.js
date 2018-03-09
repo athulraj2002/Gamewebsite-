@@ -2,7 +2,7 @@ $(document).ready(function() {
 	initialize();
 });
 function initialize(a) {
-	window.rush = 1;
+	window.rush = 2;
 	window.lastTime = Date.now();
 	window.iframHasLoaded = false;
 	window.colors = ["#e74c3c", "#f1c40f", "#3498db", "#2ecc71"];

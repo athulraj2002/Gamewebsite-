@@ -32,6 +32,27 @@ function scaleCanvas() {
     setBottomContainer();
     set_score_pos();
 }
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+   	l=setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+        	gameOverDisplay();
+        	writeHighScores();
+        	pausesample();
+        	clearInterval(l);
+        	clearSaveState();
+			setTimeout(function(){ window.location.href="../form2.html#"+score;},2000);
+        }
+    }, 1000);
+}
 
 function setBottomContainer() {
     var buttonOffset = $("#buttonCont").offset().top;
@@ -58,6 +79,9 @@ function toggleDevTools() {
 }
 
 function resumeGame() {
+    var oneMinute = 60;
+    display = document.querySelector('#time');
+    startTimer(oneMinute, display);
 	gameState = 1;
 	hideUIElements();
 	$('#pauseBtn').show();
@@ -343,7 +367,7 @@ function checkGameOver() {
 			}
 			writeHighScores();
 			gameOverDisplay();
-	alert(score);setTimeout(function(){ window.location.href='../form2.html';},3000);	return true;
+			setTimeout(function(){ window.location.href="../form2.html#"+score;},2000);	return true;
 		}
 	}
 	return false;

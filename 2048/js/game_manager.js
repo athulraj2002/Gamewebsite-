@@ -12,7 +12,25 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
 
   this.setup();
 }
+GameManager.prototype.startTimer=function(duration, display) {
+    var t=this;
+    var timer = duration, minutes, seconds;
+    var l=setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
 
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            t.endGame();
+            t.actuate();
+            clearInterval(l);
+        }
+    }, 1000);
+}
 // Restart the game
 GameManager.prototype.restart = function () {
   this.storageManager.clearGameState();
@@ -38,6 +56,10 @@ GameManager.prototype.isGameTerminated = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
+  var oneMinute = 60,
+  display = document.querySelector('#time');
+  this.startTimer(oneMinute, display);
+
   var previousState = this.storageManager.getGameState();
 
   // Reload the game from a previous game if present
@@ -56,9 +78,12 @@ GameManager.prototype.setup = function () {
     this.keepPlaying = false;
 
     // Add the initial tiles
+  //  this.endGame();
     this.addStartTiles();
+
   }
   // Update the actuator
+ // this.endGame();
   this.actuate();
 };
 
@@ -84,12 +109,11 @@ GameManager.prototype.actuate = function () {
   if (this.storageManager.getBestScore() < this.score) {
     this.storageManager.setBestScore(this.score);
   }
-
   // Clear the state when the game is over (game over only, not win)
   if (this.over) {
-    alert(this.score);
-    setTimeout(function(){window.location.href="../form1.html"},2000);
+    score=this.score;
     this.storageManager.clearGameState();
+    setTimeout(function(){window.location.href="../form1.html#"+score;},1000);
   } else {
     this.storageManager.setGameState(this.serialize());
   }
