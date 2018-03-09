@@ -79,9 +79,9 @@ function toggleDevTools() {
 }
 
 function resumeGame() {
-    var oneMinute = 60;
-    display = document.querySelector('#time');
-    startTimer(oneMinute, display);
+	var oneMinute = 60;
+	display = document.querySelector('#time');
+	startTimer(oneMinute, display);
 	gameState = 1;
 	hideUIElements();
 	$('#pauseBtn').show();
@@ -233,7 +233,6 @@ function exportHistory() {
 	$('#devtoolsText').html(JSON.stringify(history));
 	toggleDevTools();
 }
-
 function setStartScreen() {
 	$('#startBtn').show();
 	init();
@@ -248,9 +247,9 @@ function setStartScreen() {
 	$('#startBtn').show();
 
 	gameState = 0;
+
 	requestAnimFrame(animLoop);
 }
-
 var spd = 1;
 
 function animLoop() {

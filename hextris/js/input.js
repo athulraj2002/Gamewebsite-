@@ -209,6 +209,7 @@ function handleClickTap(x,y) {
 		showHelp();
 		return;
 	}
+
 	var radius = settings.hexWidth ;
 	var halfRadius = radius/2;
 	var triHeight = radius *(Math.sqrt(3)/2);
