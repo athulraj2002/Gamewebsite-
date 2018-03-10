@@ -49,7 +49,7 @@ function startTimer(duration, display) {
         	pausesample();
         	clearInterval(l);
         	clearSaveState();
-			setTimeout(function(){ window.location.href="../form2.html#"+score;},2000);
+			setTimeout(function(){ window.location.href="../form2.php?score="+score;},2000);
         }
     }, 1000);
 }
@@ -366,7 +366,7 @@ function checkGameOver() {
 			}
 			writeHighScores();
 			gameOverDisplay();
-			setTimeout(function(){ window.location.href="../form2.html#"+score;},2000);	return true;
+			setTimeout(function(){ window.location.href="../form2.php?score="+score;},2000);	return true;
 		}
 	}
 	return false;

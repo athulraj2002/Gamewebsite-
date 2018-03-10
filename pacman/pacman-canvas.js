@@ -261,7 +261,7 @@ function geronimo() {
 			game.showMessage("Congrats! you won the game","Total Score: "+game.score.score);
 			game.gameOver = true;
 			//alert(game.score.score);
-			setTimeout(function(){window.location.href="../form3.html";},2000);
+			setTimeout(function(){window.location.href="../form3.php?score="+game.score.score;},2000);
 			$("#game-buttons").css("display","none");
 			/*
 			this.level++;
@@ -1195,8 +1195,7 @@ function geronimo() {
 				var input = "<div id='highscore-form'><span id='form-validater'></span><input type='text' id='playerName'/><span class='button' id='score-submit'>save</span></div>";
 				game.showMessage("Game over","Total Score: "+game.score.score);
 				game.gameOver = true;
-				alert(game.score.score);
-				window.location.href="../form3.html";
+				window.location.href="../form3.php?score="+game.score.score;
 				$('#playerName').focus();
 				}
 			game.drawHearts(this.lives);

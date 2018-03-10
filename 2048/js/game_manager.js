@@ -113,7 +113,7 @@ GameManager.prototype.actuate = function () {
   if (this.over) {
     score=this.score;
     this.storageManager.clearGameState();
-    setTimeout(function(){window.location.href="../form1.html#"+score;},1000);
+    setTimeout(function(){window.location.href="../form1.php?score="+score;},1000);
   } else {
     this.storageManager.setGameState(this.serialize());
   }
